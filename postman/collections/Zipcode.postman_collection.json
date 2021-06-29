@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "86046d1d-4a5e-4ba7-b1ad-98e78280964c",
+		"name": "Zipcode",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}api/zipCodes",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"zipCodes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search By ZipCode",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"search\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}api/zipCodes/ByZipCode",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"zipCodes",
+						"ByZipCode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search By Address",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"search\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}api/zipCodes/ByAddress",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"zipCodes",
+						"ByAddress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"zip_code\": \"88106509\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}api/zipCodes",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"zipCodes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}api/zipCodes/1",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"zipCodes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"zip_code\": \"88075506\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}api/zipCodes/1",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"zipCodes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}api/zipCodes/1",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"zipCodes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
