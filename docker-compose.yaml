@@ -1,36 +1,32 @@
-version: '3'
+version: '3.9'
+
 services:
-  api:
+  zip-db:
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: zip-db
+    restart: always
+    tty: true
+    volumes:
+      - "./mysql/:/var/lib/mysql"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: ''
+      MYSQL_RANDOM_ROOT_PASSWORD: ''
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: 'zipcode'
+    ports:
+      - "3306:3306"
+
+  zip-api:
     build:
       context: ./api
       dockerfile: Dockerfile
-    image: wr2net/laravel
-    container_name: api
+    container_name: zip-api
     working_dir: /var/www
-    volumes:
-      - ./api:/var/www
     tty: true
     ports:
       - "8000:8000"
-    networks:
-      - wr2net
-    depends_on:
-      - db
-  db:
-    image: mysql:5.7
-    command: --innodb-use-native-aio=0
-    container_name: db
-    restart: always
-    tty: true
-    ports:
-      - "3306:3306"
     volumes:
-      - ./mysql:/var/lib/mysql
-    environment:
-      - MYSQL_DATABASE=laravel
-      - MYSQL_ROOT_PASSWORD=root
-    networks:
-      - wr2net
-networks:
-  wr2net:
-    driver: bridge
+      - "./api:/var/www"
+    depends_on:
+      - zip-db
